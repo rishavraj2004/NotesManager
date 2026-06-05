@@ -27,12 +27,15 @@
                 <p class="brand-subtitle">Create your free account</p>
             </div>
 
-            <!-- REGISTRATION FORM 
-                 - POST request to backend route (e.g., /register)
-                 - Backend will handle validation, error control
-                 - EJS variables: errorMessage (general), fieldErrors (per field), formData (to repopulate)
+            <!-- 
+                REGISTRATION FORM 
+                - POST request to /signup (matching your postSignup route)
+                - Field names: fullName, email, password, confirmPassword (matches your schema & controller)
+                - Backend will handle validation, password match, duplicate email check
+                - EJS variables: errorMessage (general), fieldErrors (per field), formData (to repopulate)
+                - Redirect scenarios handled by your controller
             -->
-            <form action="/register" method="POST" class="register-form" novalidate>
+            <form action="/signup" method="POST" class="register-form" novalidate>
                 <!-- Global error message (backend validation/auth errors) -->
                 <% if (typeof errorMessage !=='undefined' && errorMessage) { %>
                     <div class="alert alert-error">
@@ -43,19 +46,19 @@
                     </div>
                     <% } %>
 
-                        <!-- Full Name field -->
+                        <!-- Full Name field (matches schema: fullName) -->
                         <div class="input-group">
-                            <label for="name" class="input-label">
+                            <label for="fullName" class="input-label">
                                 <i class="fas fa-user"></i> Full name
                             </label>
                             <div class="input-wrapper">
-                                <input type="text" id="name" name="name"
-                                    value="<%= typeof formData !== 'undefined' && formData.name ? formData.name : '' %>"
+                                <input type="text" id="fullName" name="fullName"
+                                    value="<%= typeof formData !== 'undefined' && formData.fullName ? formData.fullName : '' %>"
                                     placeholder="John Doe" autocomplete="name" required>
                             </div>
-                            <% if (typeof fieldErrors !=='undefined' && fieldErrors.name) { %>
+                            <% if (typeof fieldErrors !=='undefined' && fieldErrors.fullName) { %>
                                 <div class="field-error"><i class="fas fa-circle-exclamation"></i>
-                                    <%= fieldErrors.name %>
+                                    <%= fieldErrors.fullName %>
                                 </div>
                                 <% } %>
                         </div>
@@ -91,7 +94,7 @@
                                     <%= fieldErrors.password %>
                                 </div>
                                 <% } %>
-                                    <div class="password-hint">At least 8 characters</div>
+                                    <div class="password-hint">At least 8 characters recommended</div>
                         </div>
 
                         <!-- Confirm Password field -->
@@ -111,7 +114,7 @@
                         </div>
 
                         <!-- Submit button -->
-                        <button type="submit" class="register-btn">
+                        <button type="submit" class="register-btn" post="/register">
                             <i class="fas fa-user-plus"></i> Create account
                         </button>
 
