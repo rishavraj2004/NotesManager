@@ -1,0 +1,27 @@
+{
+  "name": "notesmanager",
+  "version": "1.0.0",
+  "description": "RBAC",
+  "homepage": "https://github.com/rishavraj2004/NotesManager#readme",
+  "bugs": {
+    "url": "https://github.com/rishavraj2004/NotesManager/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishavraj2004/NotesManager.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongodb": "^7.2.0",
+    "mongoose": "^9.6.3",
+    "nodemon": "^3.1.14"
+  }
+}
