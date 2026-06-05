@@ -4,6 +4,7 @@ const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes')
+const profileRoutes = require('./routes/profileRoutes')
 const app = express();
 const session = require('express-session');
 const MongoStore = require('connect-mongo').default;
@@ -35,6 +36,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'));
 app.use('/', authRoutes);
+app.use('/', profileRoutes);
 
 
 app.get("/", (req, res) => {
@@ -42,3 +44,4 @@ app.get("/", (req, res) => {
 });
 
 module.exports = app;
+

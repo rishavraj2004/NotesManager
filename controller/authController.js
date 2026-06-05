@@ -16,12 +16,6 @@ exports.getSignup = (req, res, next) => {
     });
 };
 
-exports.postLogin = (req, res, next) => {
-
-    req.session.isLoggedIn = true
-    res.redirect('/');
-}
-
 
 exports.postLogin = (req, res, next) => {
     const email = req.body.email;
@@ -47,8 +41,9 @@ exports.postLogin = (req, res, next) => {
                     req.session.user = user;
 
                     req.session.save(err => {
-                        console.log('Session save error:', err);
-                        res.redirect('/dashboard');
+                        // console.log('Session save error:', err);
+                        console.log(req.session);
+                        res.redirect('/profile');
                     });
                 });
         })
@@ -93,3 +88,9 @@ exports.postSignup = (req, res, next) => {
             console.log(err);
         });
 };
+
+exports.postLogout = (req, res, next) => {
+    req.session.destroy(() => {
+        res.redirect('/login')
+    })
+}
