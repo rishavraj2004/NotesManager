@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Create account | NotesManager</title>
+    <!-- Google Fonts: clean Inter font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Separate CSS file for registration page -->
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+
+<body>
+    <div class="register-container">
+        <div class="register-card">
+            <!-- Branding header -->
+            <div class="brand-header">
+                <div class="brand-icon">
+                    <i class="fas fa-pen-fancy"></i>
+                </div>
+                <h1 class="brand-title">NotesManager</h1>
+                <p class="brand-subtitle">Create your free account</p>
+            </div>
+
+            <!-- REGISTRATION FORM 
+                 - POST request to backend route (e.g., /register)
+                 - Backend will handle validation, error control
+                 - EJS variables: errorMessage (general), fieldErrors (per field), formData (to repopulate)
+            -->
+            <form action="/register" method="POST" class="register-form" novalidate>
+                <!-- Global error message (backend validation/auth errors) -->
+                <% if (typeof errorMessage !=='undefined' && errorMessage) { %>
+                    <div class="alert alert-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span>
+                            <%= errorMessage %>
+                        </span>
+                    </div>
+                    <% } %>
+
+                        <!-- Full Name field -->
+                        <div class="input-group">
+                            <label for="name" class="input-label">
+                                <i class="fas fa-user"></i> Full name
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="text" id="name" name="name"
+                                    value="<%= typeof formData !== 'undefined' && formData.name ? formData.name : '' %>"
+                                    placeholder="John Doe" autocomplete="name" required>
+                            </div>
+                            <% if (typeof fieldErrors !=='undefined' && fieldErrors.name) { %>
+                                <div class="field-error"><i class="fas fa-circle-exclamation"></i>
+                                    <%= fieldErrors.name %>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <!-- Email field -->
+                        <div class="input-group">
+                            <label for="email" class="input-label">
+                                <i class="fas fa-envelope"></i> Email address
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="email" id="email" name="email"
+                                    value="<%= typeof formData !== 'undefined' && formData.email ? formData.email : '' %>"
+                                    placeholder="you@example.com" autocomplete="email" required>
+                            </div>
+                            <% if (typeof fieldErrors !=='undefined' && fieldErrors.email) { %>
+                                <div class="field-error"><i class="fas fa-circle-exclamation"></i>
+                                    <%= fieldErrors.email %>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <!-- Password field -->
+                        <div class="input-group">
+                            <label for="password" class="input-label">
+                                <i class="fas fa-lock"></i> Password
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="password" id="password" name="password"
+                                    placeholder="Create a strong password" autocomplete="new-password" required>
+                            </div>
+                            <% if (typeof fieldErrors !=='undefined' && fieldErrors.password) { %>
+                                <div class="field-error"><i class="fas fa-circle-exclamation"></i>
+                                    <%= fieldErrors.password %>
+                                </div>
+                                <% } %>
+                                    <div class="password-hint">At least 8 characters</div>
+                        </div>
+
+                        <!-- Confirm Password field -->
+                        <div class="input-group">
+                            <label for="confirmPassword" class="input-label">
+                                <i class="fas fa-check-circle"></i> Confirm password
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="password" id="confirmPassword" name="confirmPassword"
+                                    placeholder="Confirm your password" autocomplete="off" required>
+                            </div>
+                            <% if (typeof fieldErrors !=='undefined' && fieldErrors.confirmPassword) { %>
+                                <div class="field-error"><i class="fas fa-circle-exclamation"></i>
+                                    <%= fieldErrors.confirmPassword %>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="register-btn">
+                            <i class="fas fa-user-plus"></i> Create account
+                        </button>
+
+                        <!-- Login redirect -->
+                        <div class="login-prompt">
+                            <span>Already have an account?</span>
+                            <a href="/login" class="login-link">Sign in instead</a>
+                        </div>
+            </form>
+
+            <!-- Terms hint -->
+            <div class="terms-note">
+                <i class="fas fa-shield-heart"></i> By signing up, you agree to our
+                <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.
+            </div>
+        </div>
+        <div class="register-footer">
+            <p>© 2025 NotesManager — Secure & simple note taking</p>
+        </div>
+    </div>
+</body>
+
+</html>

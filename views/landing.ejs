@@ -1,0 +1,174 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>NotesManager | Smart notes, organized life</title>
+    <!-- Google Fonts: Inter + Playfair Display for elegant headings -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Separate CSS file (MVC pattern) -->
+    <link rel="stylesheet" href="/css/landing.css">
+</head>
+
+<body>
+    <!-- Simple navigation / header (minimal, just logo + sign in button) -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <i class="fas fa-pen-fancy"></i>
+                </div>
+                <span class="logo-text">NotesManager</span>
+            </div>
+            <div class="header-actions">
+                <a href="/login" class="btn-outline">
+                    <i class="fas fa-arrow-right-to-bracket"></i> Sign in
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section: main call to action -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="badge">
+                        <span class="badge-text">✨ Productivity reimagined</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Notes that <span class="gradient-text">work</span> <br> as hard as you do.
+                    </h1>
+                    <p class="hero-description">
+                        NotesManager helps you capture ideas, organize tasks, and collaborate seamlessly.
+                        Lightning fast, beautifully simple, and always in sync.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="/login" class="btn-primary">
+                            <i class="fas fa-arrow-right-to-bracket"></i> Get started
+                        </a>
+                        <a href="#features" class="btn-secondary">
+                            <i class="fas fa-chevron-down"></i> Explore features
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">10k+</span>
+                            <span class="stat-label">Active users</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50k+</span>
+                            <span class="stat-label">Notes created</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Uptime</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="visual-card">
+                        <div class="note-preview">
+                            <div class="note-header">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Today's priorities</span>
+                                <i class="fas fa-ellipsis-h"></i>
+                            </div>
+                            <div class="note-item">
+                                <i class="fas fa-circle-check"></i>
+                                <span>Complete project proposal</span>
+                            </div>
+                            <div class="note-item">
+                                <i class="fas fa-circle"></i>
+                                <span>Team sync at 3 PM</span>
+                            </div>
+                            <div class="note-item">
+                                <i class="fas fa-circle"></i>
+                                <span>Review design draft</span>
+                            </div>
+                            <div class="note-tag">+2 more tasks</div>
+                        </div>
+                        <div class="floating-float">
+                            <i class="fas fa-magic"></i> AI-powered suggestions
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature highlights (three columns) -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Why NotesManager</span>
+                    <h2 class="section-title">Everything you need, <br> nothing you don't.</h2>
+                    <p class="section-desc">Powerful features wrapped in an elegant, intuitive interface.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud-arrow-up"></i>
+                        </div>
+                        <h3>Instant Sync</h3>
+                        <p>Your notes are automatically backed up and available across all your devices, anywhere.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <h3>Smart Organization</h3>
+                        <p>Tags, folders, and search make finding any note effortless — even thousands later.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Private & Secure</h3>
+                        <p>End-to-end encryption and granular sharing controls keep your ideas safe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Extra minimal CTA strip (optional second sign-in prompt) -->
+        <section class="cta-strip">
+            <div class="container cta-container">
+                <div class="cta-content">
+                    <h3>Ready to transform your note-taking?</h3>
+                    <p>Join thousands of focused minds using NotesManager daily.</p>
+                    <a href="/login" class="btn-primary btn-large">
+                        <i class="fas fa-arrow-right-to-bracket"></i> Sign in to your account
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Simple footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <i class="fas fa-pen-fancy"></i>
+                    <span>NotesManager</span>
+                </div>
+                <p class="footer-tagline">Capture. Organize. Achieve.</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about">About</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/contact">Contact</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 NotesManager. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
